@@ -14,7 +14,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { app } from './firbase'
 import UserRecipe from './pages/UserRecipe'
 import AddRecipe from './pages/AddRecipe'
-import UserFullRecipe from './components/userFullRecipe'
+import UserFullRecipe from './components/UserFullRecipe'
 import UpdateForm from './components/UpdateForm'
 
  const auth=getAuth(app)
