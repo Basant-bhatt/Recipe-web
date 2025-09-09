@@ -41,7 +41,9 @@ function App() {
   },[])
 
   return (
-    <div>
+    <div className='min-h-screen flex flex-col'>
+      <main className='flex-grow'>
+
       <ToastContainer position='top-right' />
      
        <Navbar islogin={islogin}/>
@@ -62,18 +64,20 @@ function App() {
         
         
         </Routes>
+      </main>
 
-        <footer className='  '>
-          <div className='flex justify-around items-center bg-gray-200 p-5 mt-10'>
+        <footer className='flex gap-3  justify-around  items-center bg-gray-200 py-3 px-1 mt-10 '>
+          
         {/* left section  */}
+
         <div>
           <Link to={"/"} className='font-bold text-sm sm:text-lg cursor-pointer text-gray-700'>Tasty_Bites</Link >
-          <p className='text-gray-400'>&copy; {new Date().getFullYear()} Recipe Web. All rights reserved</p>
+          <p className='text-gray-400 text-xs sm:text-sm '>&copy; {new Date().getFullYear()}Recipe Web. All rights reserved</p>
         </div>
 
         {/* center section */}
 
-        <div className='flex flex-col cursor-pointer  '>
+        <div className='flex flex-col cursor-pointer  text-xs sm:text-sm space-y-1'>
           <Link to={"/"} className='hover:underline'>Home</Link>
           <Link to={"/contact"} className='hover:underline'>Contact</Link>
           <Link to={"/favorite"} className='hover:underline'>Favorite</Link>
@@ -82,14 +86,14 @@ function App() {
 
         {/* right section  */}
 
-        <div className='text-2xl space-x-5'>
+        <div className=' sm:text-2xl space-x-1 sm:space-x-4 '>
           <Link ><i className='fab fa-instagram text-pink-600'></i></Link>
           <Link ><i className='fab fa-facebook text-blue-700' ></i></Link>
           <Link ><i className='fab fa-github'></i></Link>
           <Link ><i class="fa-brands fa-x-twitter"></i></Link>
         </div>
             
-          </div>
+          
         </footer>
       
         </div>
