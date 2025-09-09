@@ -3,6 +3,7 @@ import { getAuth, signOut } from 'firebase/auth'
 import {  useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { app } from '../firbase'
+import { toast } from 'react-toastify'
 
 const auth = getAuth(app)
 
@@ -33,7 +34,7 @@ function Navbar({ islogin }) {
   }
 
   const logout = () => {
-    signOut(auth).then((item) => console.log(item.user.email));
+    signOut(auth).then((item) => toast.info(islogin.email + "you are logeed out") );
   }
 
 

@@ -25,11 +25,11 @@ function Favorite() {
     
     <div className="m-2">
       
-        <h1 className="text-center font-bold text-2xl p-5 text-blue-700">Your Favourite item's </h1>
+        <h1 className="text-center font-bold text-2xl p-5 text-blue-700">Your Favourite Recipe's </h1>
 
         {
           favorate.length===0?(
-            <p className=" text-xl text-gray-500 m-10">No favorite recipes</p>
+            <p className=" text-xl text-gray-500 m-10">No recipes yet. Add your Favorite recipe</p>
           ):(
             favorate.map((item,index)=>(
               <div className="max-w-4xl h-30 sm:h-40 bg-gray-200 shadow-md  overflow-hidden  relative flex mb-5 mx-auto" key={index}>

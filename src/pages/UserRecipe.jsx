@@ -52,7 +52,7 @@ const db=getFirestore(app)
 
       {
         recipes.length===0?
-          <h1 className=" text-xl text-gray-500 m-10">No Recipes has been added</h1>
+          <h1 className=" text-xl text-gray-500 m-10">No Recipes yet. Add your first recipe</h1>
         :
         
 

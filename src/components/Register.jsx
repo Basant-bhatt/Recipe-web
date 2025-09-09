@@ -3,6 +3,7 @@ import React, {  useState } from 'react'
 import { createUserWithEmailAndPassword, getAuth, signInWithPopup,GoogleAuthProvider, onAuthStateChanged} from 'firebase/auth';
 import { app } from '../firbase';
 import { Link } from 'react-router';
+import { toast } from 'react-toastify';
 
 
   const auth=getAuth(app)
@@ -17,7 +18,7 @@ function Register() {
   const [password,setPassword]=useState("");
   const createUser=()=>{
 
-    createUserWithEmailAndPassword(auth,email,password).then((item)=>alert("you are registerd")).catch((item)=>alert("this account already exsits"));
+    createUserWithEmailAndPassword(auth,email,password).then((item)=>toast.success("you are registerd")).catch((item)=>toast.error("this account already exsits"));
 
   }
 

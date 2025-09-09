@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { app, } from '../firbase'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
+import { useNavigate } from 'react-router'
+import { Flip, Slide, toast, Zoom } from 'react-toastify'
 function AddRecipe() {
  
   const [coverPic,setCoverPic]=useState()
@@ -13,12 +15,15 @@ function AddRecipe() {
   const [summary,setSummary]=useState("")
   const [ReadyTime,setReadyTime]=useState("")
   const [servedTime,setServedTime]=useState("")
+  const [loading,setLoading]=useState(false);
 
    const db=getFirestore(app);
   const auth=getAuth(app)
+  const navigate=useNavigate();
   
    const uploadImage=async(event)=>{
     const file=event.target.files[0];
+    setLoading(true)
     if(!file) return;
     const data=new FormData();
     data.append("file",file)
@@ -30,6 +35,7 @@ function AddRecipe() {
     })
     const uploadedImage=await res.json()
     console.log(uploadedImage.url);
+    setLoading(false)
     setCoverPic(uploadedImage.url)
   }
 
@@ -64,7 +70,10 @@ function AddRecipe() {
     setServedTime("")
     setCoverPic()
     
-    alert("recipe has been added");
+    toast.success("Recipe added successfully",{
+    
+    })
+    navigate("/userRecipe");
   }
   return (
    
@@ -76,7 +85,11 @@ function AddRecipe() {
         
 
         <label className='w-full max-w-30 h-30 rounded-full cursor-pointert  relative bg-white cursor-pointer'>
-          <img src={coverPic} alt=""  className=' w-full  h-full rounded-full cursor-pointer '/>
+          {
+            loading?            
+            <img src="https://assets-v2.lottiefiles.com/a/d071cc66-117f-11ee-b585-07722702110e/cdLtdpmNqt.gif" alt=""  className=' rounded-full  cursor-pointer '/>:
+            <img src={coverPic} alt=""  className=' w-full  h-full rounded-full cursor-pointer '/>
+          }
           <input type='file'  className=' w-full max-w-30 h-30 rounded-full cursor-pointer text-xs hidden'  onChange={uploadImage} required/>
         <i className="fa-solid fa-circle-plus text-gray-500 text-2xl absolute right-3 bottom-1  cursor-pointer"></i>
         </label>

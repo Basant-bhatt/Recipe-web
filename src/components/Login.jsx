@@ -2,6 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
 import { Link } from 'react-router'
 import { app } from '../firbase'
+import { toast } from 'react-toastify'
 
 const auth=getAuth(app)
 
@@ -12,7 +13,9 @@ function Login() {
     const [password,setPassword]=useState("");
   const loginUser=(e)=>{
     e.preventDefault();
-    signInWithEmailAndPassword(auth,email,password);
+    signInWithEmailAndPassword(auth,email,password).then((e)=>
+      toast.success(email + " you are logeed in")
+    ).catch((e)=>toast.error("Incorrect email or password"))
   }
   
  

@@ -1,5 +1,5 @@
 
-import { Navigate, Route, Routes, useNavigate } from 'react-router'
+import { Link, Navigate, Route, Routes, useNavigate } from 'react-router'
 import './App.css'
 import Navbar from './pages/Navbar'
 import Home from './pages/Home'
@@ -16,6 +16,7 @@ import UserRecipe from './pages/UserRecipe'
 import AddRecipe from './pages/AddRecipe'
 import UserFullRecipe from './components/UserFullRecipe'
 import UpdateForm from './components/UpdateForm'
+import { ToastContainer } from 'react-toastify'
 
  const auth=getAuth(app)
 
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <div>
-    
+      <ToastContainer position='top-right' />
      
        <Navbar islogin={islogin}/>
       <Routes>
@@ -61,6 +62,35 @@ function App() {
         
         
         </Routes>
+
+        <footer className='  '>
+          <div className='flex justify-around items-center bg-gray-200 p-5 mt-10'>
+        {/* left section  */}
+        <div>
+          <Link to={"/"} className='font-bold text-sm sm:text-lg cursor-pointer text-gray-700'>Tasty_Bites</Link >
+          <p className='text-gray-400'>&copy; {new Date().getFullYear()} Recipe Web. All rights reserved</p>
+        </div>
+
+        {/* center section */}
+
+        <div className='flex flex-col cursor-pointer  '>
+          <Link to={"/"} className='hover:underline'>Home</Link>
+          <Link to={"/contact"} className='hover:underline'>Contact</Link>
+          <Link to={"/favorite"} className='hover:underline'>Favorite</Link>
+        
+        </div>
+
+        {/* right section  */}
+
+        <div className='text-2xl space-x-5'>
+          <Link ><i className='fab fa-instagram text-pink-600'></i></Link>
+          <Link ><i className='fab fa-facebook text-blue-700' ></i></Link>
+          <Link ><i className='fab fa-github'></i></Link>
+          <Link ><i class="fa-brands fa-x-twitter"></i></Link>
+        </div>
+            
+          </div>
+        </footer>
       
         </div>
   
