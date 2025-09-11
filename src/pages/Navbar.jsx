@@ -61,7 +61,7 @@ function Navbar({ islogin }) {
 
       <Link to={"/"} className='font-bold text-lg sm:text-xl cursor-pointer'>Tasty_Bites</Link >
       <div className="navPages sm:flex gap-3 sm:gap-8 text-[18px]   cursor-pointer  hidden ">
-        <Link to={"/"}>Home</Link>
+        <Link to={"/"}  onClick={(e)=>{e.preventDefault();window.location.href="/"}} >Home</Link>
         <Link to={"/contact"}>Contact us</Link>
       </div>
       <form action="" onSubmit={handlesubmit} className=''>

@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 function Home() {
-   const category=["vegan","non-vegetarian","vegetarian",]
+   const category=["vegetarian","non-vegetarian","vegan",]
+   const [activeCategory,setactiveCategory]=useState("")
   let Api_key="7e8badff25b34a4782b9dca18b08a0ce";
-  let Url=`https://api.spoonacular.com/recipes/random?number=10&apiKey=${Api_key}`;
+  let Url=`https://api.spoonacular.com/recipes/random?number=30&apiKey=${Api_key}`;
   const [categoryValue,setCategoryValue]=useState("");
   const categoryApi=`https://api.spoonacular.com/recipes/complexSearch?diet=${categoryValue}&addRecipeInformation=true&apiKey=${Api_key}`;
+
+  const handleClick=(cat)=>{
+    setactiveCategory(cat);
+  }
   
   let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
   let [recipe,setRecipe]=useState([]);
@@ -77,7 +82,7 @@ async function getcategorywise(){
       <div className="flex gap-5 justify-center m-5 ">
      {
       category.map((i,index)=>(
-      <button key={index} className="text-blue-700 text-lg cursor-pointer rounded-2xl px-2 py-1 hover:bg-gray-300 " value={i} onClick={(e)=>setCategoryValue(e.target.value)} >{i}</button>
+      <button key={index} className={`text-blue-700 text-lg cursor-pointer rounded-2xl px-2 py-1 hover:bg-gray-300`} value={i}  onClick={(e)=>setCategoryValue(e.target.value)} >{i}</button>
       ))
     }
     </div>

@@ -87,10 +87,11 @@ function App() {
         {/* right section  */}
 
         <div className=' sm:text-2xl space-x-1 sm:space-x-4 '>
-          <Link ><i className='fab fa-instagram text-pink-600'></i></Link>
-          <Link ><i className='fab fa-facebook text-blue-700' ></i></Link>
-          <Link ><i className='fab fa-github'></i></Link>
-          <Link ><i class="fa-brands fa-x-twitter"></i></Link>
+          <Link to={"https://www.instagram.com/basantbhatt000/"}><i className='fab fa-instagram text-pink-600'></i></Link>
+          <Link to={"https://www.linkedin.com/in/basant-bhatt-3a3ba6319/"}><i className='fab fa-linkedin text-blue-700' ></i></Link>
+          <Link to={"https://github.com/Basant-bhatt/Recipe-web"}><i className='fab fa-github'></i></Link>
+          <Link to={'https://x.com/Basantbhatt00'}><i class="fa-brands fa-x-twitter"></i></Link>
+          
         </div>
             
           
