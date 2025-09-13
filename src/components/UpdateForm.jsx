@@ -73,7 +73,7 @@ function UpdateForm() {
     
             <label className='w-full max-w-30 h-30 rounded-full cursor-pointert  relative bg-white cursor-pointer'>
           <img src={coverPic} alt=""  className=' w-full  h-full rounded-full cursor-pointer '/>
-          <input type='file'  className=' w-full max-w-30 h-30 rounded-full cursor-pointer text-xs hidden'  onChange={uploadImage} required/>
+          <input type='file'  className=' w-full max-w-30 h-30 rounded-full cursor-pointer text-xs hidden'  onChange={uploadImage} />
         <i className="fa-solid fa-circle-plus text-gray-500 text-2xl absolute right-3 bottom-1  cursor-pointer"></i>
         </label>
             <div className='flex flex-col gap-5 cursor-pointer '>
